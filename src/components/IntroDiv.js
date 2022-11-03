@@ -1,24 +1,14 @@
 import React, { useEffect, useState } from "react"
-import { Button } from "antd"
+import { Button, notification } from "antd"
 import { IntroStyle } from "../../styles/LandingPageStyle"
 import { ethers } from "ethers"
 import { zampsContractAddress } from "../../constants/contractAddress"
 import { abi } from "../../constants/abi"
-const IntroDiv = () => {
+const IntroDiv = ({ address }) => {
     const [businessCardAddress, setBusinessCardAddress] = useState("")
-    const [clientAddress, setClientAddress] = useState("")
+
     const [businessAddess, setBusinessAddress] = useState(false)
     const [loader, setLoader] = useState(false)
-    const getClientAddress = async () => {
-        if (typeof window.ethereum !== "undefined") {
-            const accounts = await window.ethereum.request({
-                method: "eth_requestAccounts",
-            })
-            setClientAddress(accounts[0])
-            console.log(clientAddress, "Hello")
-        }
-    }
-    getClientAddress()
     useEffect(() => {
         if (businessCardAddress !== "") {
             setBusinessAddress(true)
@@ -26,17 +16,23 @@ const IntroDiv = () => {
     }, [businessCardAddress])
 
     const generate = async () => {
-        setLoader(true)
-        const provider = new ethers.providers.Web3Provider(window.ethereum)
-        const signer = provider.getSigner()
-        const contract = new ethers.Contract(zampsContractAddress, abi, signer)
-
-        const response = await contract.create(clientAddress)
-        response.wait(1)
-        console.log(response)
-       checkEvents()
-       console.log(checkEvents())
-        setLoader(false)
+        if (address == "" || address == "undefined" || address == "null") {
+            notification.error({
+                description: "Please connect to your wallet",
+                duration: 1000,
+            })
+        } else {
+            setLoader(true)
+            const provider = new ethers.providers.Web3Provider(window.ethereum)
+            const signer = provider.getSigner()
+            const contract = new ethers.Contract(zampsContractAddress, abi, signer)
+            const response = await contract.create(address)
+            response.wait(1)
+            console.log(response)
+            checkEvents()
+            console.log(checkEvents())
+            setLoader(false)
+        }
     }
 
     const checkEvents = async () => {

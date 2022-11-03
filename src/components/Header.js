@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { HeaderStyle, MobileNavStyle, NavBarStyle } from "../../styles/LandingPageStyle"
 import Link from "next/link"
 import { Menu } from "@material-ui/icons"
-import { ethers } from "ethers"
+import IntroDiv from "./IntroDiv"
 const Header = () => {
     const [address, setAddress] = useState("")
     const [connect, setConnect] = useState("Connect Wallet")
@@ -35,42 +35,45 @@ const Header = () => {
     }
 
     return (
-        <NavBarStyle>
-            <HeaderStyle>
-                <h2>ZAMPS</h2>
-                <ul className="desktop-nav">
-                    <Link href="/dashboard">
-                        <a>
-                            <li>Dashboard</li>
-                        </a>
-                    </Link>
-                    <li>About</li>
-                    <li>Team</li>
-                    <li className="connect-btn" onClick={connectWallet}>
-                        {connect}
-                    </li>
-                </ul>
-                <div className="menu">
-                    <Menu onClick={navFunction} />
-                </div>
-            </HeaderStyle>
-            <MobileNavStyle>
-                <div className={`${nav ? "hide-nav" : "mobile-nav"} nav`}>
-                    <ul>
+        <>
+            <NavBarStyle>
+                <HeaderStyle>
+                    <h2>ZAMPS</h2>
+                    <ul className="desktop-nav">
                         <Link href="/dashboard">
                             <a>
-                                <li>DashBoard</li>
+                                <li>Dashboard</li>
                             </a>
                         </Link>
                         <li>About</li>
                         <li>Team</li>
                         <li className="connect-btn" onClick={connectWallet}>
-                            Connect Wallet
+                            {connect}
                         </li>
                     </ul>
-                </div>
-            </MobileNavStyle>
-        </NavBarStyle>
+                    <div className="menu">
+                        <Menu onClick={navFunction} />
+                    </div>
+                </HeaderStyle>
+                <MobileNavStyle>
+                    <div className={`${nav ? "hide-nav" : "mobile-nav"} nav`}>
+                        <ul>
+                            <Link href="/dashboard">
+                                <a>
+                                    <li>DashBoard</li>
+                                </a>
+                            </Link>
+                            <li>About</li>
+                            <li>Team</li>
+                            <li className="connect-btn" onClick={connectWallet}>
+                                Connect Wallet
+                            </li>
+                        </ul>
+                    </div>
+                </MobileNavStyle>
+            </NavBarStyle>
+            <IntroDiv address={address} />
+        </>
     )
 }
 

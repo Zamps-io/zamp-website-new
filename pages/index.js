@@ -8,7 +8,7 @@ export default function Home() {
     <UserWebLayout webtitle="Home Page">
       <div style={{ backgroundColor: "#000" , minHeight:'100vh'}}>
         <Header/>
-        <IntroDiv />
+        {/* <IntroDiv /> */}
       </div>
     </UserWebLayout>
   );
