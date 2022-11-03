@@ -30,6 +30,10 @@ const IntroDiv = ({ address }) => {
             response.wait(1)
             console.log(response)
             checkEvents()
+            notification.info({
+                description: "Please wait while Metamask completes the transaction",
+                duration: 1000,
+            })
             console.log(checkEvents())
             setLoader(false)
         }
