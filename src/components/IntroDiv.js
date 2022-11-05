@@ -16,7 +16,7 @@ const IntroDiv = ({ address }) => {
     }, [businessCardAddress])
 
     const generate = async () => {
-        if (address == "" || address == "undefined" || address == "null") {
+        if (address === "" || address === "undefined" || address === "null") {
             notification.error({
                 description: "Please connect to your wallet",
                 duration: 1000,
