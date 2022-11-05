@@ -7,7 +7,7 @@ export const NavBarStyle = styled.div`
 export const HeaderStyle = styled.div`
     display: flex;
     align-items: center;
-    background-color: #000;
+    background-color: #0D172A;
     color: #fff;
     justify-content: space-around;
     padding: 10px 15px;
@@ -99,12 +99,12 @@ export const MobileNavStyle = styled.div`
     }
 `
 export const HomePageStyled = styled.div`
-    background-color: #000;
+    background-color: #0D172A;
 `
 
 export const IntroStyle = styled.div`
     display: flex;
-    background-color: #000;
+    background-color: #0D172A;
     color: #fff;
     align-items: center;
     margin-top: 40px;
