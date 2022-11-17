@@ -6,7 +6,6 @@ import { zampsContractAddress } from "../../constants/contractAddress"
 import { abi } from "../../constants/abi"
 const IntroDiv = ({ address }) => {
     const [businessCardAddress, setBusinessCardAddress] = useState("")
-
     const [businessAddess, setBusinessAddress] = useState(false)
     const [loader, setLoader] = useState(false)
     useEffect(() => {
@@ -14,12 +13,12 @@ const IntroDiv = ({ address }) => {
             setBusinessAddress(true)
         }
     }, [businessCardAddress])
-
+    //This generates a business Card Address
     const generate = async () => {
         if (address === "" || address === "undefined" || address === "null") {
             notification.error({
                 description: "Please connect to your wallet",
-                duration: 1000,
+               
             })
         } else {
             setLoader(true)
@@ -32,13 +31,13 @@ const IntroDiv = ({ address }) => {
             checkEvents()
             notification.info({
                 description: "Please wait while Metamask completes the transaction",
-                duration: 1000,
+               
             })
             console.log(checkEvents())
             setLoader(false)
         }
     }
-
+    //Check for events
     const checkEvents = async () => {
         const provider = new ethers.providers.Web3Provider(window.ethereum)
         const contract = new ethers.Contract(zampsContractAddress, abi, provider)
