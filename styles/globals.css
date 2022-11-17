@@ -26,10 +26,7 @@ ul li {
   margin-bottom: 10px;
 }
 @media(max-width:900px){
-  .swip{
-    width: 400px !important;
-  }
   .img-section img{
-    width: 70%;
+    width: 95%;
   }
 }
