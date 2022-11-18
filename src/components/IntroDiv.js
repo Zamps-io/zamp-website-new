@@ -4,6 +4,7 @@ import { IntroStyle } from "../../styles/LandingPageStyle"
 import { ethers } from "ethers"
 import { zampsContractAddress } from "../../constants/contractAddress"
 import { abi } from "../../constants/abi"
+import Image from 'next/image'
 const IntroDiv = ({ address }) => {
     const [businessCardAddress, setBusinessCardAddress] = useState("")
     const [businessAddess, setBusinessAddress] = useState(false)
@@ -18,7 +19,6 @@ const IntroDiv = ({ address }) => {
         if (address === "" || address === "undefined" || address === "null") {
             notification.error({
                 description: "Please connect to your wallet",
-               
             })
         } else {
             setLoader(true)
@@ -31,7 +31,6 @@ const IntroDiv = ({ address }) => {
             checkEvents()
             notification.info({
                 description: "Please wait while Metamask completes the transaction",
-               
             })
             console.log(checkEvents())
             setLoader(false)
@@ -72,7 +71,14 @@ const IntroDiv = ({ address }) => {
                 )}
             </div>
             <div className="img-card">
-                <img src="./card.png" alt="Hand" />
+                <Image
+                    src={"/card.png"}
+                    height="400"
+                    width="700"
+                    objectFit="contain"
+                    loader={() => "/card.png"}
+                    alt="card"
+                />
             </div>
         </IntroStyle>
     )
