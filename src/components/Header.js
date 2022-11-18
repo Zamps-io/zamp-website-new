@@ -40,13 +40,6 @@ const Header = () => {
                 <HeaderStyle>
                     <h2>ZAMPS</h2>
                     <ul className="desktop-nav">
-                        <Link href="/dashboard">
-                            <a>
-                                <li>Dashboard</li>
-                            </a>
-                        </Link>
-                        <li>About</li>
-                        <li>Team</li>
                         <li className="connect-btn" onClick={connectWallet}>
                             {connect}
                         </li>
@@ -58,13 +51,6 @@ const Header = () => {
                 <MobileNavStyle>
                     <div className={`${nav ? "hide-nav" : "mobile-nav"} nav`}>
                         <ul>
-                            <Link href="/dashboard">
-                                <a>
-                                    <li>DashBoard</li>
-                                </a>
-                            </Link>
-                            <li>About</li>
-                            <li>Team</li>
                             <li className="connect-btn" onClick={connectWallet}>
                                 Connect Wallet
                             </li>
