@@ -7,8 +7,8 @@ const ImageSection = () => {
             <div className="img-section">
                 <Image
                     src={"/pic1.png"}
-                    height="400"
-                    width="700"
+                    height="700"
+                    width="1500"
                     objectFit="contain"
                     loader={() => "/pic1.png"}
                     alt="Pic1"
@@ -17,8 +17,8 @@ const ImageSection = () => {
             <div className="img-section">
                 <Image
                     src={"/pic2.png"}
-                    height="400"
-                    width="700"
+                    height="700"
+                    width="1500"
                     objectFit="contain"
                     loader={() => "/pic2.png"}
                     alt="Pic2"
@@ -27,8 +27,8 @@ const ImageSection = () => {
             <div className="img-section">
                 <Image
                     src={"/pic3.png"}
-                    height="400"
-                    width="700"
+                    height="700"
+                    width="1500"
                     objectFit="contain"
                     loader={() => "/pic3.png"}
                     alt="Pic3"
@@ -37,8 +37,8 @@ const ImageSection = () => {
             <div className="img-section">
                 <Image
                     src={"/pic4.png"}
-                    height="400"
-                    width="700"
+                    height="700"
+                    width="1500"
                     objectFit="contain"
                     loader={() => "/pic4.png"}
                     alt="Pic4"
@@ -47,8 +47,8 @@ const ImageSection = () => {
             <div className="img-section">
                 <Image
                     src={"/pic5.png"}
-                    height="400"
-                    width="700"
+                    height="700"
+                    width="1500"
                     objectFit="contain"
                     loader={() => "/pic5.png"}
                     alt="Pic5"
